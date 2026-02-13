@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Люблю тебя, Света! | Twin Peaks & Co</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍒</text></svg>">
+    <script src="code.js"></script>
+</head>
+<body class="relative min-h-screen pb-20 selection:bg-red-200 selection:text-red-900">
+
+    <div id="assets" style="display:none;">
+        <audio id="audio-bella" src=""></audio> <audio id="audio-forest" loop src=""></audio>
+        <audio id="audio-ribbit" src=""></audio>
+        <audio id="audio-ring" src=""></audio>
+    </div>
+
+    <div class="bg-texture" aria-hidden="true"></div>
+    <div class="curtain curtain-left" aria-hidden="true"></div>
+    <div class="curtain curtain-right" aria-hidden="true"></div>
+
+    <main class="relative z-10 container mx-auto px-4 py-8 max-w-3xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-red-twin-peaks)] drop-shadow-sm">
+                Люблю тебя, Света!
+            </h1>
+            
+            <div class="flex justify-center mb-6">
+                <div class="bg-white p-3 shadow-lg rotate-1 w-64 transform transition hover:rotate-0 duration-300">
+                    <div class="bg-gray-200 h-64 w-full flex items-center justify-center overflow-hidden relative">
+                        <img src="assets/we.jpg" 
+                             alt="Наше фото" class="object-cover w-full h-full">
+                    </div>
+                    <p class="font-typewriter text-center mt-3 text-xs text-gray-800">Дело №14-02: "Love"</p>
+                </div>
+            </div>
+            
+            <div id="timer" class="grid grid-cols-4 gap-2 max-w-md mx-auto mb-8">
+                </div>
+        </header>
+
+        <section class="mb-12 relative group cursor-pointer" onclick="app.heist.toggle()">
+            <div class="absolute inset-0 bg-red-600 transform skew-y-2 opacity-10 rounded-xl group-hover:opacity-20 transition"></div>
+            <div class="bg-white border-4 border-red-700 p-6 rounded-lg shadow-xl relative overflow-hidden text-center heist-card">
+                
+                <div class="text-sm font-bold text-red-700 uppercase tracking-widest mb-2 font-typewriter">
+                    Секретная операция "Bella Ciao"
+                </div>
+                
+                <div class="flex items-center justify-center gap-6">
+                    <div class="w-24 h-24 relative transform group-hover:scale-110 transition duration-500">
+                        <img src="assets/mask.png" 
+                             alt="Маска Дали" class="rounded-full shadow-md object-cover border-2 border-red-900">
+                    </div>
+                    <div class="text-left max-w-xs">
+                        <h3 class="text-xl font-bold text-gray-800">21.06.2022</h3>
+                        <p class="text-gray-600 text-sm italic">"День, когда план сработал..."</p>
+                        <p class="text-[10px] text-red-500 mt-2 font-bold uppercase blink-text">Нажми, чтобы открыть досье</p>
+                    </div>
+                </div>
+
+                <div id="heist-content" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out">
+                    <div class="pt-6 mt-4 border-t border-red-100">
+                        <p class="font-serif text-lg leading-relaxed text-gray-800">
+                            Мы совершили идеальное преступление. Я украл твой покой, а ты — моё сердце <br>
+                            <span class="font-bold text-red-700">И никаких заложников</span>
+                        </p>
+                        <div class="mt-4 text-3xl animate-bounce">🎭 💰 ❤️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="zigzag-separator" aria-hidden="true"></div>
+
+        <section class="py-8 text-center" aria-label="Озеро">
+            <h2 class="text-2xl font-bold text-[#1e3a4a] mb-2 font-serif">Озеро в Карелии</h2>
+            <p class="font-typewriter text-xs text-gray-500 mb-6">Там, где время замерло (нажми на воду)</p>
+            
+            <div class="relative w-full max-w-sm mx-auto aspect-square rounded-full overflow-hidden cursor-pointer shadow-2xl border-4 border-[#2c3e50] group"
+                 onclick="app.lake.openOverlay()">
+                
+                <img src="assets/lake.png" 
+                     class="absolute inset-0 w-full h-full object-cover transition duration-1000 group-hover:scale-110 opacity-80"
+                     alt="Природа Карелии">
+                
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="lake-ripple" style="width: 50%; height: 50%;"></div>
+                    <div class="lake-ripple" style="animation-delay: 1s; width: 70%; height: 70%;"></div>
+                </div>
+                
+                <div class="absolute bottom-10 left-0 right-0 text-white font-serif italic text-lg opacity-80 group-hover:opacity-100 transition">
+                    Посмотреть отражение...
+                </div>
+            </div>
+        </section>
+
+        <div class="zigzag-separator" aria-hidden="true"></div>
+
+        <section class="py-8 text-center bg-green-50/50 rounded-xl border border-green-100">
+            <h2 class="text-2xl font-bold text-[var(--color-toad-green)] mb-1">Жабка-Кайдзю</h2>
+            <p class="text-xs text-gray-500 mb-4 font-typewriter">Уровень угрозы Токио</p>
+
+            <div class="flex flex-col items-center">
+                <div class="relative mb-4" onclick="app.toad.pet()">
+                    <img id="toad-img" src="assets/frog.png" 
+                         class="w-48 h-48 object-contain drop-shadow-lg transition-transform active:scale-95 cursor-pointer"
+                         alt="Жаба">
+                    
+                    <div id="toad-speech" class="absolute -top-4 -right-8 bg-white border border-gray-300 p-2 rounded-lg rounded-bl-none text-xs shadow-md opacity-0 transition-opacity">
+                        Квак?
+                    </div>
+                </div>
+
+                <div class="w-64 bg-gray-300 rounded-full h-3 mb-4 overflow-hidden relative border border-gray-400">
+                    <div id="happiness-bar" class="bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 h-full transition-all duration-500 w-[10%]"></div>
+                </div>
+                <p id="kaiju-status" class="text-xs font-bold uppercase tracking-widest text-red-600 mb-6">Монстр голоден!</p>
+
+                <div class="grid grid-cols-3 gap-3 w-full max-w-sm px-4">
+                    <button onclick="app.toad.feed('milk')" class="feed-btn group">
+                        <img src="assets/milk.png" class="w-8 h-8 mx-auto mb-1 rounded-full">
+                        <span class="text-[10px] font-bold">Сгущенка</span>
+                    </button>
+                    <button onclick="app.toad.feed('halva')" class="feed-btn group">
+                        <img src="assets/halva.png" class="w-8 h-8 mx-auto mb-1 rounded-full">
+                        <span class="text-[10px] font-bold">Халва</span>
+                    </button>
+                    <button onclick="app.toad.feed('city')" class="feed-btn group border-red-200 bg-red-50 hover:bg-red-100">
+                        <img src="assets/building.png" class="w-8 h-8 mx-auto mb-1 rounded-full">
+                        <span class="text-[10px] font-bold text-red-800">Здание</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 text-center">
+            <h2 class="text-2xl font-bold mb-6">Кофейная пауза</h2>
+            <div class="cup-container" onclick="app.coffee.fill()">
+                <div class="cup-handle"></div>
+                <div class="cup-body">
+                    <div class="coffee-liquid" id="coffee-liquid"></div>
+                </div>
+                <div class="steam" id="steam"><span></span><span></span><span></span></div>
+            </div>
+            <div id="coffee-msg" class="mt-4 text-[var(--color-red-twin-peaks)] font-bold opacity-0 transition font-typewriter">
+                Damn good coffee!
+            </div>
+        </section>
+
+<section class="pt-12 pb-12 mt-4 border-t-2 border-dashed border-gray-300 bg-gray-50 overflow-hidden relative">
+            <div class="container mx-auto px-4 text-center relative z-30 mb-2">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-700 font-typewriter">Почти как у Джима и Пэм</h3>
+                <p class="text-base text-gray-500 mt-2 italic">(Под присмотром лучших)</p>
+            </div>
+
+            <div class="flex flex-row items-end justify-center w-full relative z-10">
+                <img src="assets/michael.png" 
+                     alt="Майкл Скотт" 
+                     class="w-[30%] md:w-[35%] max-w-sm h-auto object-contain filter grayscale-[30%] opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-500 drop-shadow-xl transform origin-bottom hover:scale-105 pointer-events-none">
+
+                <div class="relative cursor-pointer group z-50 shrink-0 mb-4 -mx-4 md:-mx-8" onclick="app.office.revealNote()">
+                    <img src="assets/Teapot.png" 
+                         alt="Зеленый чайник" 
+                         class="w-24 md:w-40 drop-shadow-2xl transform group-hover:rotate-3 transition duration-300 relative z-20">
+                    
+                    <div id="office-note" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 md:w-40 h-24 md:h-28 bg-[#ffffe0] shadow-md p-2 text-[10px] md:text-xs font-handwriting rotate-[-5deg] opacity-0 transition-all duration-700 z-10 flex items-center justify-center text-center border border-yellow-200 pointer-events-none">
+                        <p class="leading-tight">
+                            "Not just some coworker."<br>
+                            <span class="text-red-600 text-base">❤️</span><br>
+                            <span class="text-[8px] text-gray-400 mt-1 block">(см. ниже)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <img src="assets/jim.png" 
+                     alt="Джим Халперт" 
+                     class="w-[30%] md:w-[35%] max-w-sm h-auto object-contain filter grayscale-[10%] opacity-95 hover:grayscale-0 hover:opacity-100 transition duration-500 drop-shadow-xl transform origin-bottom hover:scale-105 pointer-events-none">
+            </div>
+        </section>
+
+        <div id="spa-section" class="hidden opacity-0 transition-opacity duration-1000">
+            
+            <div class="h-8 w-full opacity-80" style="background: repeating-linear-gradient(45deg, #000 0, #000 10px, #fff 10px, #fff 20px);"></div>
+
+            <section class="py-10 bg-red-900 text-white relative overflow-hidden text-center cursor-pointer group">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/red-curtain.png')] opacity-30"></div>
+                
+                <div class="relative z-10 max-w-lg mx-auto border-4 border-double border-yellow-600 p-8 bg-black/40 shadow-2xl transform transition duration-700 hover:scale-105">
+                    
+                    <h2 class="text-3xl md:text-4xl font-serif text-yellow-500 mb-2 tracking-widest uppercase" style="text-shadow: 2px 2px 0 #000;">
+                        The Waiting Room
+                    </h2>
+                    
+                    <div id="spa-reveal">
+                        <hr class="border-yellow-600/50 my-4">
+                        <p class="text-xl font-bold font-serif italic text-white mb-1">
+                            Совместное СПА
+                        </p>
+                        <p class="text-3xl text-yellow-400 font-bold mb-2 font-typewriter">17.02</p>
+                        <p class="text-sm italic opacity-90">
+                            "Место одновременно чудесное и странное.<br>
+                            Где мы растворимся в пару..."
+                        </p>
+                        <div class="mt-4">
+                            <img src="assets/extra.png" 
+                                 class="mx-auto w-48 h-48 object-contain drop-shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="h-8 w-full opacity-80 mb-8" style="background: repeating-linear-gradient(-45deg, #000 0, #000 10px, #fff 10px, #fff 20px);"></div>
+        </div>
+    </main>
+
+    <div id="ring-overlay" class="fixed inset-0 z-50 bg-black/95 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-700">
+        
+        <button onclick="app.lake.closeOverlay()" 
+                class="absolute top-6 right-6 text-white/50 hover:text-white z-50 p-2 border border-white/20 rounded-full hover:bg-white/10 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div id="fireflies-container" class="absolute inset-0 pointer-events-none"></div>
+
+        <div class="text-center relative z-10 transform scale-90 transition-transform duration-1000" id="ring-content">
+            <div class="mb-8 relative inline-block">
+                <div class="absolute inset-0 bg-yellow-400 blur-2xl opacity-20 animate-pulse"></div>
+                <img src="assets/ring.png" 
+                     alt="Кольцо" 
+                     class="w-40 h-40 object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]">
+            </div>
+
+            <h3 class="text-3xl md:text-5xl font-bold text-yellow-100 font-serif mb-4">03.08.2025</h3>
+            <p class="text-xl text-white/90 italic font-light max-w-md mx-auto leading-relaxed px-4">
+                Самое важное 'Да', которое прозвучало среди карельских лесов.
+            </p>
+        </div>
+    </div>
+
+</body>
+<footer class="text-center py-12 mt-8">
+            <p class="text-sm opacity-60 font-serif italic mt-8">Твой агент Купер ❤️</p>
+        </footer>
+</html>
